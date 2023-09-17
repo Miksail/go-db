@@ -8,7 +8,7 @@ import (
 )
 
 // NewTransactionalBalancer create transactional balancer and run goose migration
-func NewTransactionalBalancer(ctx context.Context, dsn string, runMigrations bool) (balancer.TransactionalBalancer, func(), error) {
+func NewTransactionalBalancer(ctx context.Context, dsn string) (balancer.TransactionalBalancer, func(), error) {
 	// create pgx connection
 	pool, err := pgxpool.Connect(ctx, dsn)
 	if err != nil {
