@@ -3,14 +3,15 @@ package examples
 import (
 	"context"
 
+	"github.com/jackc/pgx/v5/pgxpool"
+
 	"github.com/Miksail/go-db/balancer"
-	"github.com/jackc/pgx/v4/pgxpool"
 )
 
 // NewTransactionalBalancer create transactional balancer and run goose migration
 func NewTransactionalBalancer(ctx context.Context, dsn string) (balancer.TransactionalBalancer, func(), error) {
 	// create pgx connection
-	pool, err := pgxpool.Connect(ctx, dsn)
+	pool, err := pgxpool.New(ctx, dsn)
 	if err != nil {
 		return nil, nil, err
 	}

@@ -3,9 +3,10 @@ package pgxscan
 import (
 	"database/sql"
 
-	"github.com/Miksail/go-db/dbscan"
 	"github.com/jackc/pgtype"
-	"github.com/jackc/pgx/v4"
+	"github.com/jackc/pgx/v5"
+
+	"github.com/Miksail/go-db/dbscan"
 )
 
 // DefaultAPI is the default instance of API with all configuration settings set to default.

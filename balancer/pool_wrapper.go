@@ -3,8 +3,9 @@ package balancer
 import (
 	"context"
 
+	"github.com/jackc/pgx/v5/pgxpool"
+
 	"github.com/Miksail/go-db/pgxscan"
-	"github.com/jackc/pgx/v4/pgxpool"
 )
 
 type poolWrapper struct {

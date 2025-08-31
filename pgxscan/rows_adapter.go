@@ -1,7 +1,7 @@
 package pgxscan
 
 import (
-	"github.com/jackc/pgx/v4"
+	"github.com/jackc/pgx/v5"
 )
 
 // RowsAdapter makes pgx.Rows compliant with the dbscan.Rows interface.
