@@ -6,7 +6,7 @@ import (
 )
 
 func ExecInTx(ctx context.Context, balancer TransactionalBalancer, handler func(context.Context) error) error {
-	ctx, err := balancer.BeginTransaction(ctx, nil)
+	ctx, err := balancer.BeginTransaction(ctx)
 	if err != nil {
 		return fmt.Errorf("failed to begin transaction: %w", err)
 	}
@@ -30,7 +30,7 @@ func ExecInTx(ctx context.Context, balancer TransactionalBalancer, handler func(
 
 func GetInTx[T any](ctx context.Context, balancer TransactionalBalancer, handler func(context.Context) (T, error)) (T, error) {
 	var res T
-	ctx, err := balancer.BeginTransaction(ctx, nil)
+	ctx, err := balancer.BeginTransaction(ctx)
 	if err != nil {
 		return res, fmt.Errorf("failed to begin transaction: %w", err)
 	}
